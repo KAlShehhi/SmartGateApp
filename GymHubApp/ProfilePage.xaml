@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="GymHubApp.ProfilePage"
+             Title="ProfilePage" BackgroundColor="{StaticResource Primary}">
+    <ScrollView VerticalScrollBarVisibility="Never" BackgroundColor="White">
+        <StackLayout>
+            <Image Source="topnologo" Scale="1.2" ZIndex="-10"/>
+            <HorizontalStackLayout ZIndex="10" Padding="10,-25, 10, 0" Spacing="10">
+                <Label x:Name="fname" Text="Khalifa" FontSize="Title" FontFamily="Roboto" TextColor="White"/>
+                <Label x:Name="lname" Text="AlShehhi" FontSize="Title" FontFamily="Roboto" TextColor="White"/>
+            </HorizontalStackLayout>
+            <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" Padding="20" Spacing="20">
+                <VerticalStackLayout Spacing="10">
+                    <StackLayout Orientation="Horizontal" Spacing="15">
+                        <Image Source="email" HeightRequest="30" WidthRequest="30"/>
+                        <Label x:Name="emailLabel" Text="email" VerticalOptions="Center" FontFamily="Roboto"/>
+                        </StackLayout>
+                    <Frame HeightRequest="1"/>
+                </VerticalStackLayout>
+                <VerticalStackLayout Spacing="10">
+                    <StackLayout Orientation="Horizontal" Spacing="15">
+                        <Image Source="phone" HeightRequest="30" WidthRequest="30"/>
+                        <Label x:Name="phoneLabel" Text="0505226800" VerticalOptions="Center" FontFamily="Roboto"/>
+                        </StackLayout>
+                    <Frame HeightRequest="1"/>
+                </VerticalStackLayout>
+                <VerticalStackLayout Spacing="10">
+                    <StackLayout Orientation="Horizontal" Spacing="15">
+                        <Image Source="calendar" HeightRequest="30" WidthRequest="30"/>
+                        <Label x:Name="dateLabel" Text="3/8/2001" VerticalOptions="Center" FontFamily="Roboto"/>
+                        </StackLayout>
+                    <Frame HeightRequest="1"/>
+                </VerticalStackLayout>
+                <VerticalStackLayout Spacing="10">
+                    <StackLayout Orientation="Horizontal" Spacing="15">
+                        <Image Source="location" HeightRequest="30" WidthRequest="30"/>
+                        <Label x:Name="emirateLabel" Text="Dubai" VerticalOptions="Center" FontFamily="Roboto"/>
+                        </StackLayout>
+                    <Frame HeightRequest="1"/>
+                </VerticalStackLayout>
+                <VerticalStackLayout Spacing="10">
+                    <StackLayout Orientation="Horizontal" Spacing="15">
+                        <Image Source="gender" HeightRequest="35" WidthRequest="30"/>
+                        <Label x:Name="genderLabel" Text="Male" VerticalOptions="Center" FontFamily="Roboto"/>
+                        </StackLayout>
+                    <Frame HeightRequest="1"/>
+                </VerticalStackLayout>
+                <Button Text="Edit profile" BackgroundColor="#F05D22" CornerRadius="20" FontFamily="Roboto"/>
+                <Button Text="Logout" Clicked="Button_Clicked" BackgroundColor="#F05D22" CornerRadius="20" FontFamily="Roboto"/>
+                <Frame HeightRequest="1" Margin="0, 30"/>
+                <Frame x:Name="warnApply" BorderColor="Red" BackgroundColor="#fadada" IsVisible="false">
+                    <Label Text="An error have occured" FontFamily="Roboto" TextColor="Red"/>
+                </Frame>
+                <Frame>
+                    <StackLayout Spacing="10">
+                        <Label Text="Apply to be a gym owner!" HorizontalOptions="Center"/>
+                        <Button x:Name="ApplyBtn" Text="Apply" Clicked="GymOwnerBtn_Clicked"/>
+                    </StackLayout>
+                </Frame>
+            </StackLayout>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

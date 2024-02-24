@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="GymHubApp.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:GymHubApp"
+    xmlns:adminLocal="clr-namespace:GymHubApp.AdminViews"
+    xmlns:gymLocal="clr-namespace:GymHubApp.GymOwnerViews"
+    NavigationPage.HasNavigationBar="False"
+    Shell.FlyoutBehavior="Disabled">
+
+    <ShellItem Route="login">
+        <ShellContent ContentTemplate="{DataTemplate local:LoginPage}" />
+    </ShellItem>
+
+
+    <TabBar Route="main">
+
+        <!-- Admin -->
+        <Tab x:Name="approveGymOwner" Title="Waiting Approval" Icon="clock">
+            <ShellContent
+                Title="Approve Gym Owners"
+                ContentTemplate="{DataTemplate adminLocal:ApproveGymOwnerPage}"
+                Route="WaitingApprove"
+            />
+        </Tab>
+        <Tab x:Name="approvedUsers" Title="Approved" Icon="check">
+            <ShellContent
+                Title="Approve Gym Owners"
+                ContentTemplate="{DataTemplate adminLocal:ApprovedPage}"
+                Route="Approved"
+            />
+        </Tab>
+        <Tab x:Name="disapprovedUsers" Title="Disapproved" Icon="xicon">
+            <ShellContent
+                Title="Approve Gym Owners"
+                ContentTemplate="{DataTemplate adminLocal:DisapprovedPage}"
+                Route="Disapproved"
+            />
+        </Tab>
+        <Tab x:Name="adminProfile" Title="Profile" Icon="user">
+            <ShellContent
+                Title="Approve Gym Owners"
+                ContentTemplate="{DataTemplate adminLocal:AdminProfilePage}"
+                Route="AdminProfile"
+            />
+        </Tab>
+
+        
+        <!-- Gym Owner -->
+        <Tab x:Name="createGym" Title="Create Your Gym" Icon="plus">
+            <ShellContent
+                Title="Create Your Gym"
+                ContentTemplate="{DataTemplate gymLocal:CreateGymPage}"
+                Route="createGym"
+            />
+        </Tab>
+
+        <Tab x:Name="membersTab" Title="Members" Icon="memebers">
+            <ShellContent
+                Title="Near me"
+                ContentTemplate="{DataTemplate gymLocal:memebersPage}"
+                Route="Members "
+            />
+        </Tab>
+
+        <Tab x:Name="gymOwnerProfileTab" Title="Profile" Icon="user">
+            <ShellContent
+                Title="Profile"
+                ContentTemplate="{DataTemplate gymLocal:GymOwnerProfilePage}"
+                Route="GymOwnerProfile"
+            />
+        </Tab>
+
+
+        
+        <!-- Regular  -->
+        <Tab x:Name="gymstab" Title="Gyms" Icon="dumbbell">
+            <ShellContent
+                Title="Search"
+                ContentTemplate="{DataTemplate local:GymsSearchPage}"
+                Route="search"
+            />
+            <ShellContent
+                Title="Near me"
+                ContentTemplate="{DataTemplate local:GymsNearMePage}"
+                Route="nearMe"
+            />
+        </Tab>
+        <Tab x:Name="subsTab" Title="Subscriptions" Icon="card">
+            <ShellContent
+                Title="Near me"
+                ContentTemplate="{DataTemplate local:SubscriptionsPage}"
+                Route="subs"
+            />
+        </Tab>
+        <Tab x:Name="statsTab" Title="Statistics" Icon="graph">
+            <ShellContent
+                Title="Near me"
+                ContentTemplate="{DataTemplate local:StatisticsPage}"
+                Route="stats"
+         
+            />
+        </Tab>
+        <Tab x:Name="profileTab" Title="Profile" Icon="user">
+            <ShellContent
+                Title="Near me"
+                ContentTemplate="{DataTemplate local:ProfilePage}"
+                Route="profile"
+            />
+        </Tab>
+    </TabBar>
+</Shell>

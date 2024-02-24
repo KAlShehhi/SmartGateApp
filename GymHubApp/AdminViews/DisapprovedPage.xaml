@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="GymHubApp.AdminViews.DisapprovedPage"
+             Title="Disapproved Users">
+    <ScrollView Padding="20">
+        <StackLayout>
+            <Frame x:Name="wanringFrame" BorderColor="Red" BackgroundColor="#fadada" IsVisible="false">
+                    <Label x:Name="warnText" Text=" " TextColor="Red" HorizontalOptions="Start" FontFamily="Roboto"/>
+            </Frame>
+            <CollectionView x:Name="listView" SelectionMode="None" EmptyView="No users been disapproved">
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout Orientation="Vertical" ItemSpacing="10" />
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                                <StackLayout Orientation="Vertical" Grid.Column="0">
+                                    <StackLayout Orientation="Horizontal" Spacing="5">
+                                        <Label x:Name="fname1" Text="{Binding firstName}" FontSize="Large" FontFamily="Roboto"/>
+                                        <Label x:Name="lanme1" Text="{Binding lastName}" FontSize="Large" FontFamily="Roboto"/>
+                                    </StackLayout>
+                                    <Label x:Name="email1" Text="{Binding email}" FontSize="Small" FontFamily="Roboto"/>
+                                </StackLayout>
+                            </Grid>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

@@ -1,0 +1,127 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFrameworks>net7.0-android;net7.0-ios;net7.0-maccatalyst</TargetFrameworks>
+		<TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows'))">$(TargetFrameworks);net7.0-windows10.0.19041.0</TargetFrameworks>
+		<!-- Uncomment to also build the tizen app. You will need to install tizen by following this: https://github.com/Samsung/Tizen.NET -->
+		<!-- <TargetFrameworks>$(TargetFrameworks);net7.0-tizen</TargetFrameworks> -->
+		<OutputType>Exe</OutputType>
+		<RootNamespace>GymHubApp</RootNamespace>
+		<UseMaui>true</UseMaui>
+		<SingleProject>true</SingleProject>
+		<ImplicitUsings>enable</ImplicitUsings>
+
+		<!-- Display name -->
+		<ApplicationTitle>GymHubApp</ApplicationTitle>
+
+		<!-- App Identifier -->
+		<ApplicationId>com.companyname.gymhubapp</ApplicationId>
+		<ApplicationIdGuid>b5a1dfbb-5f54-4f3b-9ecf-67556cde08bf</ApplicationIdGuid>
+
+		<!-- Versions -->
+		<ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
+		<ApplicationVersion>1</ApplicationVersion>
+
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">11.0</SupportedOSPlatformVersion>
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'maccatalyst'">13.1</SupportedOSPlatformVersion>
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'">21.0</SupportedOSPlatformVersion>
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</SupportedOSPlatformVersion>
+		<TargetPlatformMinVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</TargetPlatformMinVersion>
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'tizen'">6.5</SupportedOSPlatformVersion>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net7.0-ios|AnyCPU'">
+	  <CreatePackage>false</CreatePackage>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net7.0-ios|AnyCPU'">
+	  <CreatePackage>false</CreatePackage>
+	</PropertyGroup>
+	<ItemGroup>
+		<!-- App Icon -->
+		<MauiIcon Include="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\appiconfg.svg" Color="#512BD4" />
+
+		<!-- Splash Screen -->
+		<MauiSplashScreen Include="Resources\Splash\splash.svg" Color="#512BD4" BaseSize="128,128" />
+
+		<!-- Images -->
+		<MauiImage Include="Resources\Images\*" />
+		<MauiImage Update="Resources\Images\dotnet_bot.svg" BaseSize="168,208" />
+		<MauiImage Update="Resources\Images\user.svg" BaseSize="30,30" />
+		<MauiImage Update="Resources\Images\graph.svg" BaseSize="30,30" />
+		<MauiImage Update="Resources\Images\card.svg" BaseSize="30,30" />
+		<MauiImage Update="Resources\Images\dumbbell.svg" BaseSize="30,30" />
+		<MauiImage Update="Resources\Images\clock.svg" BaseSize="30,30" />
+		<MauiImage Update="Resources\Images\check.svg" BaseSize="30,30" />
+		<MauiImage Update="Resources\Images\xicon.svg" BaseSize="30,30" />
+		<MauiImage Update="Resources\Images\plus.svg" BaseSize="30,30" />
+		<MauiImage Update="Resources\Images\memebers.svg" BaseSize="30,30" />
+		<!-- Custom Fonts -->
+		<MauiFont Include="Resources\Fonts\*" />
+
+		<!-- Raw Assets (also remove the "Resources\Raw" prefix) -->
+		<MauiAsset Include="Resources\Raw\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="7.0.0" />
+		<PackageReference Include="sqlite-net-pcl" Version="1.8.116" />
+		<PackageReference Include="SQLitePCLRaw.bundle_green" Version="2.1.8" />
+		<PackageReference Include="Mzsoft.BCrypt" Version="1.0.0" />
+		<PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+		<PackageReference Include="Microsoft.IdentityModel.JsonWebTokens" Version="7.3.1" />
+		<PackageReference Include="Microsoft.Extensions.Logging" Version="7.0.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <None Remove="Resources\Images\user.svg" />
+	  <None Remove="Resources\Images\toplogo.svg" />
+	  <None Remove="Resources\Images\password.svg" />
+	  <None Remove="Resources\Fonts\Roboto-Regular.ttf" />
+	  <None Remove="Resources\Images\calendar.svg" />
+	  <None Remove="Resources\Images\card.svg" />
+	  <None Remove="Resources\Images\cardSelected.svg" />
+	  <None Remove="Resources\Images\dumbbell.svg" />
+	  <None Remove="Resources\Images\dumbbellSelected.svg" />
+	  <None Remove="Resources\Images\graph.svg" />
+	  <None Remove="Resources\Images\graphSelected.svg" />
+	  <None Remove="Resources\Images\house.svg" />
+	  <None Remove="Resources\Images\houseSelected.svg" />
+	  <None Remove="Resources\Images\location.svg" />
+	  <None Remove="Resources\Images\locationselected.svg" />
+	  <None Remove="Resources\Images\plus.svg" />
+	  <None Remove="Resources\Images\plusselected.svg" />
+	  <None Remove="Resources\Images\search.svg" />
+	  <None Remove="Resources\Images\searchselected.svg" />
+	  <None Remove="Resources\Images\star.svg" />
+	  <None Remove="Resources\Images\userSelected.svg" />
+	  <None Remove="Resources\Images\email.svg" />
+	  <None Remove="Resources\Images\phone.svg" />
+	  <None Remove="Resources\Images\map.svg" />
+	  <None Remove="Models\" />
+	  <None Remove="Resources\Images\graphselected.svg" />
+	  <None Remove="Resources\Images\dumbbellselected.svg" />
+	  <None Remove="Resources\Images\cardselected.svg" />
+	  <None Remove="Resources\Images\houseselected.svg" />
+	  <None Remove="Helpers\" />
+	  <None Remove="Resources\Images\exit.svg" />
+	  <None Remove="Resources\Images\enter.svg" />
+	  <None Remove="Resources\Images\person.svg" />
+	  <None Remove="Resources\Images\clock.svg" />
+	  <None Remove="Resources\Images\x.svg" />
+	  <None Remove="Resources\Images\check.svg" />
+	  <None Remove="AdminViews\" />
+	  <None Remove="Resources\Images\bgnologo.svg" />
+	  <None Remove="Resources\Images\topnologo.svg" />
+	  <None Remove="Resources\Images\gender.svg" />
+	  <None Remove="GymOwnerViews\" />
+	  <None Remove="Platforms\Android\Resources\xml\" />
+	  <None Remove="Resources\Images\memebers.svg" />
+	</ItemGroup>
+	<ItemGroup>
+	  <Folder Include="Models\" />
+	  <Folder Include="Helpers\" />
+	  <Folder Include="AdminViews\" />
+	  <Folder Include="GymOwnerViews\" />
+	  <Folder Include="Platforms\Android\Resources\xml\" />
+	</ItemGroup>
+</Project>

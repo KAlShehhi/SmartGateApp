@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="GymHubApp.GymsSearchPage"
+             Title="Search">
+    <ScrollView>
+        <VerticalStackLayout Margin="20, 50, 20 , 0">
+            <Frame BorderColor="White">
+                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Spacing="10">
+                    <Picker x:Name="emirateEntry"  Title="Emirate" HorizontalOptions="FillAndExpand" SelectedIndex="5">
+                    <Picker.Items>
+                            <x:String>Abu Dhabi</x:String> 
+                            <x:String>Dubai</x:String>
+                            <x:String>Sharjah</x:String>
+                            <x:String>Ajman</x:String>
+                            <x:String>Umm Al Quwain</x:String>
+                            <x:String>Ras Al Khaimah</x:String>
+                            <x:String>Fujairah</x:String>
+                    </Picker.Items>
+                </Picker>
+                    <Button Text="Search"/>
+                </StackLayout>
+
+            </Frame>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

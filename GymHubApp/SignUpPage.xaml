@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="GymHubApp.SignUpPage"
+             Title="SignUpPage"
+             NavigationPage.HasNavigationBar="False" BackgroundColor="{StaticResource bg}"
+             xmlns:ios="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.iOSSpecific;assembly=Microsoft.Maui.Controls"
+             ios:Page.UseSafeArea="False"
+             Shell.NavBarIsVisible="False"
+             >
+        <Grid Padding="0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+            <StackLayout Margin="0, -120, 0, 20" Scale="1.1" ZIndex="1">
+                <Image Source="toplogo"/>
+            </StackLayout>
+            <ScrollView  x:Name="scrollView" Grid.Row="1" Padding="0, 50" VerticalScrollBarVisibility="Never">
+            <VerticalStackLayout Padding="25" VerticalOptions="Center" Spacing="20" >
+                <VerticalStackLayout>
+                </VerticalStackLayout>
+                <Frame x:Name="wanringFrame" BorderColor="Red" BackgroundColor="#fadada" IsVisible="false">
+                    <Label x:Name="warnText" Text="Email or password are incorrect" TextColor="Red" HorizontalOptions="Start" FontFamily="Roboto"/>
+                </Frame>
+                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Spacing="10">
+                    <Entry x:Name="firstNameEntry" Placeholder="First name" HorizontalOptions="FillAndExpand" Keyboard="Text" FontFamily="Roboto"/>
+                    <Entry x:Name="lastNameEntry" Placeholder="Last name" HorizontalOptions="FillAndExpand" Keyboard="Text" FontFamily="Roboto"/>
+                </StackLayout>
+                <StackLayout HorizontalOptions="FillAndExpand" Spacing="10" Orientation="Horizontal">
+                    <Image Source="email" HeightRequest="33" WidthRequest="33"/>
+                    <Entry x:Name="emailEntry" Placeholder="Email" HorizontalOptions="FillAndExpand" Keyboard="Email" FontFamily="Roboto"/>
+                </StackLayout>
+                <StackLayout HorizontalOptions="FillAndExpand" Spacing="10" Orientation="Horizontal">
+                    <Image Source="calendar" HeightRequest="33" WidthRequest="33"/>
+                    <DatePicker x:Name="dateEntry" FontFamily="Roboto" HorizontalOptions="FillAndExpand" CharacterSpacing="2"/>
+                </StackLayout>
+                <StackLayout HorizontalOptions="FillAndExpand" Spacing="10" Orientation="Horizontal">
+                    <Image Source="phone" HeightRequest="33" WidthRequest="33"/>
+                    <Label Text="+971" VerticalOptions="Center" FontFamily="Roboto" FontSize="Medium"/>
+                    <Entry x:Name="phoneEntry" Placeholder="XX-XXXX" HorizontalOptions="FillAndExpand" Keyboard="Email" FontFamily="Roboto" FontSize="Medium"/>
+                </StackLayout>
+                <StackLayout HorizontalOptions="FillAndExpand" Spacing="10" Orientation="Horizontal">
+                    <Label Text="Gender: " FontFamily="Roboto" FontSize="Medium" VerticalOptions="Center"/>
+                    <RadioButton x:Name="maleBtn" Value="Male" GroupName="Gender" Content="Male" Padding="10"/>
+                    <RadioButton x:Name="femaleBtn" Value="Female" GroupName="Gender" Content="Female" Padding="10"/>
+                </StackLayout>
+                <StackLayout Orientation="Vertical">
+                    <Label x:Name="p1" Text="Password must be:" TextColor="Gray" FontAttributes="Italic" FontSize="15" FontFamily="Roboto"/>
+                    <Label x:Name="p2" Text="  • 8 characters long" TextColor="Gray" FontAttributes="Italic" FontSize="15" FontFamily="Roboto"/>
+                    <Label x:Name="p3" Text="  • Must contain a number and a captial letter" TextColor="Gray" FontAttributes="Italic" FontSize="15" FontFamily="Roboto"/>
+                    <Label x:Name="p4" Text="  • Must contain a special character (!@_#)" TextColor="Gray" FontAttributes="Italic" FontSize="15" FontFamily="Roboto"/>
+                </StackLayout>
+                <StackLayout HorizontalOptions="FillAndExpand" Spacing="10" Orientation="Horizontal">
+                    <Image Source="password" HeightRequest="33" WidthRequest="33"/>
+                    <Entry x:Name="passwordEntry" Placeholder="Password" HorizontalOptions="FillAndExpand" Keyboard="Email" FontFamily="Roboto" IsPassword="True"/>
+                </StackLayout>
+                <StackLayout HorizontalOptions="FillAndExpand" Spacing="10" Orientation="Horizontal">
+                    <Image Source="password" HeightRequest="33" WidthRequest="33"/>
+                    <Entry x:Name="ConfirmPasswordEntry" Placeholder="Confirm password" HorizontalOptions="FillAndExpand" Keyboard="Email" FontFamily="Roboto" IsPassword="True"/>
+                </StackLayout>
+                <StackLayout HorizontalOptions="FillAndExpand" Spacing="10" Orientation="Horizontal">
+                    <Image Source="map" HeightRequest="33" WidthRequest="33"/>
+                    <Picker x:Name="emirateEntry"  Title="Emirate" HorizontalOptions="FillAndExpand" SelectedIndex="5">
+                    <Picker.Items>
+                            <x:String>Abu Dhabi</x:String> 
+                            <x:String>Dubai</x:String>
+                            <x:String>Sharjah</x:String>
+                            <x:String>Ajman</x:String>
+                            <x:String>Umm Al Quwain</x:String>
+                            <x:String>Ras Al Khaimah</x:String>
+                            <x:String>Fujairah</x:String>
+                    </Picker.Items>
+                </Picker>
+                </StackLayout>
+                <BoxView HeightRequest="1" BackgroundColor="LawnGreen" HorizontalOptions="FillAndExpand" Margin="40,20,40,20"/>
+                <Button Text="Sign up" BackgroundColor="#F05D22" CornerRadius="20" FontFamily="Roboto"  Clicked="signUpButton_Clicked"/>
+                <Button Text="I already have an account" BackgroundColor="#F05D22" CornerRadius="20" FontFamily="Roboto" Clicked="loginButton_Clicked"/>
+            </VerticalStackLayout>
+        </ScrollView>
+        
+    </Grid>
+</ContentPage>

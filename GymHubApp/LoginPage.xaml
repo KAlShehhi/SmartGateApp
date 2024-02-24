@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:ios="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.iOSSpecific;assembly=Microsoft.Maui.Controls"
+             x:Class="GymHubApp.LoginPage"
+             Title="LoginPage"
+             ios:Page.UseSafeArea="False"
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="{StaticResource bg}"
+             Shell.TabBarIsVisible="False"
+             Shell.NavBarIsVisible="False">
+    <Grid Padding="0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <AbsoluteLayout>
+            <Image Source="toplogo" AbsoluteLayout.LayoutBounds="20, -50" Scale="1.1"/>
+        </AbsoluteLayout>
+        <VerticalStackLayout Padding="25" VerticalOptions="Center" Spacing="20" Grid.Row="1">
+            <Frame x:Name="wanringFrame" BorderColor="Red" BackgroundColor="#fadada" IsVisible="false">
+                <Label x:Name="warnText" Text="Email or password are incorrect" TextColor="Red" HorizontalOptions="Center"/>
+            </Frame>
+           <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Spacing="10">
+               <Image Source="email" HeightRequest="33" WidthRequest="33"/>
+               <Entry x:Name="emailEntry" Placeholder="Email" HorizontalOptions="FillAndExpand" Keyboard="Email" FontFamily="Roboto"/>
+           </StackLayout>
+           <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Spacing="10">
+               <Image Source="password" HeightRequest="33" WidthRequest="33"/>
+               <Entry x:Name="passwordEntry" Placeholder="Password" HorizontalOptions="FillAndExpand" Keyboard="Default" IsPassword="True" FontFamily="Roboto" Text="Qassdw_123"/>
+           </StackLayout>
+            <BoxView HeightRequest="1" BackgroundColor="LawnGreen" HorizontalOptions="FillAndExpand" Margin="40,20,40,20"/>
+            <Button Text="Login" BackgroundColor="#F05D22" CornerRadius="20" FontFamily="Roboto" Clicked="loginBtn_Clicked"/>
+            <HorizontalStackLayout HorizontalOptions="Center">
+                <Label Text="Dont have an account ?" FontFamily="Roboto" Padding="0, 30" FontSize="Medium"/>
+                <Button Text="Register" BackgroundColor="{StaticResource bg}" TextColor="Black" FontAttributes="Bold" FontFamily="Roboto" FontSize="Medium" Clicked="registerBtn_Clicked"/>
+            </HorizontalStackLayout>
+        </VerticalStackLayout>
+    </Grid>
+</ContentPage>
